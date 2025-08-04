@@ -1,6 +1,7 @@
 import Nav from "@/components/core/nav";
 import DownloadAppSection from "@/components/pages/DownloadAppSection";
 import Features from "@/components/pages/Features";
+import Footer from "@/components/pages/Footer";
 import Hero from "@/components/pages/hero";
 import Pricing from "@/components/pages/Pricing";
 
@@ -25,7 +26,9 @@ export default function Home() {
         <DownloadAppSection />
       </div>
 
-      <div className="h-[200px]"></div>
+      {/* <div className="h-[200px]"></div> */}
+
+      <Footer/>
     </div>
   );
 }
