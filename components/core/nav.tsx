@@ -1,88 +1,125 @@
-'use client'; // Required if using app directory and state
-
+"use client";
 import Image from "next/image";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lang, setLang] = useState("EN");
-
-  const toggleLang = () => setLang(lang === "EN" ? "UZ" : "EN");
-
   return (
-    <nav className="z-10 w-full bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-5 h-[60px]">
-        {/* Logo */}
-        <Image
-          src="/images/logo.png"
-          alt="logo"
-          width={120}
-          height={48}
-          className="object-contain"
-        />
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-6">
-          <Link href="#" className="text-gray-700 hover:text-blue-600">Home</Link>
-          <Link href="#about" className="text-gray-700 hover:text-blue-600">About</Link>
-          <Link href="#price" className="text-gray-700 hover:text-blue-600">Price</Link>
-          <Link href="#team" className="text-gray-700 hover:text-blue-600">Team</Link>
-          <Link href="#contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
-          <button
-            onClick={toggleLang}
-            className="ml-4 px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-100"
-          >
-            {lang}
-          </button>
+    <nav className="w-full px-6 py-4 flex justify-between items-center bg-white z-50">
+      <div className="flex items-center justify-center">
+        {/* Left: Logo */}
+        <div className="flex items-center gap-5">
+          <Image
+            src="/images/logo.png"
+            alt="logo"
+            width={100}
+            height={48}
+            className="mr-4"
+          />
         </div>
+
+        {/* Center: Navigation Links */}
+        <div className="hidden md:flex gap-6 text-sm font-medium text-black">
+          <a href="#">Возможности</a>
+          <a href="#">Тарифы</a>
+          <a href="#">Для бизнеса</a>
+          <a href="#">Партнёрство</a>
+          <a href="#">Поддержка</a>
+        </div>
+      </div>
+
+      {/* Right: Language, Download Button, Mobile Menu */}
+      <div className="flex items-center gap-4">
+        {/* Language Selector */}
+        <div className="flex items-center gap-1 cursor-pointer">
+          <span className="text-sm">RU</span>
+          <span>▼</span>
+        </div>
+
+        {/* Download Button */}
+        <button className="bg-black text-white text-sm px-4 py-2 rounded-full">
+          Скачать приложение
+        </button>
 
         {/* Mobile Menu Button */}
         <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-gray-700 focus:outline-none"
+          className="md:hidden"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open menu"
         >
           <svg
             className="w-6 h-6"
             fill="none"
             stroke="currentColor"
+            strokeWidth={2}
             viewBox="0 0 24 24"
           >
-            {menuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div className="md:hidden px-5 pb-4 space-y-3 bg-white border-t border-gray-200">
-          <Link href="#" className="block text-gray-700 hover:text-blue-600">Home</Link>
-          <Link href="#about" className="block text-gray-700 hover:text-blue-600">About</Link>
-          <Link href="#price" className="block text-gray-700 hover:text-blue-600">Price</Link>
-          <Link href="#team" className="block text-gray-700 hover:text-blue-600">Team</Link>
-          <Link href="#contact" className="block text-gray-700 hover:text-blue-600">Contact</Link>
-          <button
-            onClick={toggleLang}
-            className="mt-2 px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-100"
-          >
-            {lang}
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-50 bg-blue-600 text-white transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Close Button */}
+        <div className="flex justify-end p-6">
+          <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
+            <svg
+              className="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
           </button>
         </div>
-      )}
+
+        {/* Links */}
+        <ul className="flex flex-col gap-6 text-xl font-bold px-6 mt-4">
+          <li>
+            <Link href="#">Возможности</Link>
+          </li>
+          <li>
+            <Link href="#">Тарифы</Link>
+          </li>
+          <li>
+            <Link href="#">Для бизнеса</Link>
+          </li>
+          <li>
+            <Link href="#">Партнёрство</Link>
+          </li>
+          <li>
+            <Link href="#">Поддержка</Link>
+          </li>
+        </ul>
+
+        {/* Social Icons */}
+        <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+          {[
+            { src: "/images/instagram.svg", alt: "Instagram" },
+            { src: "/images/tiktok.svg", alt: "TikTok" },
+            { src: "/images/whatsapp.svg", alt: "WhatsApp" },
+            { src: "/images/telegram.svg", alt: "Telegram" },
+            { src: "/images/chat.svg", alt: "Chat" },
+          ].map((icon, i) => (
+            <Image
+              key={i}
+              src={icon.src}
+              alt={icon.alt}
+              width={40}
+              height={40}
+              className="bg-white rounded-full p-2"
+            />
+          ))}
+        </div>
+      </div>
     </nav>
   );
 }
