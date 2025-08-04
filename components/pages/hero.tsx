@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <div className="relative bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-xl w-full min-h-[80vh] overflow-hidden px-6 sm:px-8 py-10 flex flex-col lg:flex-row items-start lg:items-center justify-between">
+    <div className="relative bg-gradient-to-br from-blue-600 to-blue-500 text-white rounded-xl w-full min-h-[80vh] overflow-hidden px-6 sm:px-8 py-10 flex flex-col lg:flex-row items-start lg:items-center justify-between">
       
       {/* Text content */}
       <div className="w-full lg:max-w-xl z-10 text-center lg:text-left">
@@ -17,7 +17,7 @@ export default function Hero() {
           Скачать приложение
         </button>
         <div className="mt-6 text-sm text-white/80">
-          <span className="inline-block border-l-4 pl-3 border-yellow-400">
+          <span className="inline-block border-l-4 pl-3 border-white">
             Выбор предпринимателей — простой и быстрый POS в телефоне
           </span>
         </div>

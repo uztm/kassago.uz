@@ -6,10 +6,10 @@ import { useState } from "react";
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <nav className="w-full px-6 py-4 flex justify-between items-center bg-white z-50">
+    <nav className="w-full px-6 py-4 flex justify-between fixed top-0 items-center bg-white z-50">
       <div className="flex items-center justify-center">
         {/* Left: Logo */}
-        <div className="flex items-center gap-5">
+        <a href="#" className="flex items-center gap-5">
           <Image
             src="/images/logo.png"
             alt="logo"
@@ -17,14 +17,14 @@ export default function Nav() {
             height={48}
             className="mr-4"
           />
-        </div>
+        </a>
 
         {/* Center: Navigation Links */}
         <div className="hidden md:flex gap-6 text-sm font-medium text-black">
-          <a href="#">Возможности</a>
-          <a href="#">Тарифы</a>
-          <a href="#">Для бизнеса</a>
-          <a href="#">Партнёрство</a>
+          <a href="#features">Возможности</a>
+          <a href="#pricing">Тарифы</a>
+          {/* <a href="#">Для бизнеса</a> */}
+          <a href="#">Скачайте приложение</a>
           <a href="#">Поддержка</a>
         </div>
       </div>
@@ -84,16 +84,16 @@ export default function Nav() {
         {/* Links */}
         <ul className="flex flex-col gap-6 text-xl font-bold px-6 mt-4">
           <li>
-            <Link href="#">Возможности</Link>
+            <Link href="#features">Возможности</Link>
           </li>
           <li>
-            <Link href="#">Тарифы</Link>
+            <Link href="#pricing">Тарифы</Link>
           </li>
           <li>
-            <Link href="#">Для бизнеса</Link>
+            {/* <Link href="#">Для бизнеса</Link> */}
           </li>
           <li>
-            <Link href="#">Партнёрство</Link>
+            <Link href="#">Скачайте приложение </Link>
           </li>
           <li>
             <Link href="#">Поддержка</Link>
