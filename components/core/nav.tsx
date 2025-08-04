@@ -24,7 +24,7 @@ export default function Nav() {
           <a href="#features">Возможности</a>
           <a href="#pricing">Тарифы</a>
           {/* <a href="#">Для бизнеса</a> */}
-          <a href="#">Скачайте приложение</a>
+          <a href="#download">Скачайте приложение</a>
           <a href="#">Поддержка</a>
         </div>
       </div>
@@ -93,7 +93,7 @@ export default function Nav() {
             {/* <Link href="#">Для бизнеса</Link> */}
           </li>
           <li>
-            <Link href="#">Скачайте приложение </Link>
+            <Link href="#download">Скачайте приложение </Link>
           </li>
           <li>
             <Link href="#">Поддержка</Link>
