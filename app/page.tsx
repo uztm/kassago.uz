@@ -1,3 +1,4 @@
+"use client";
 import Nav from "@/components/core/nav";
 import DownloadAppSection from "@/components/pages/DownloadAppSection";
 import Features from "@/components/pages/Features";

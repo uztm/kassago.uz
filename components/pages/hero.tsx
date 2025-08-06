@@ -3,14 +3,10 @@
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import '@/i18n';
-import { useEffect, useState } from 'react';
 
 export default function Hero() {
-  const { t, ready } = useTranslation('common');
-  const [mounted, setMounted] = useState(false);
+  const { t } = useTranslation('common');
 
-  useEffect(() => setMounted(true), []);
-  if (!mounted || !ready) return null;
 
   return (
     <section className="relative w-full min-h-[80vh] px-4 sm:px-6 md:px-10 py-10 bg-gradient-to-br from-blue-600 to-blue-500 text-white rounded-xl overflow-hidden">

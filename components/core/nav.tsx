@@ -9,15 +9,22 @@ import i18n from "@/i18n";
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  
   const [currentLang, setCurrentLang] = useState(i18n.language);
 
-  const { t, ready } = useTranslation("common");
-  
+  const { t } = useTranslation("common");
+
+  const [langKey, setLangKey] = useState(i18n.language);
 
   useEffect(() => {
-    setMounted(true);
+    const handleLangChange = (lng: string) => {
+      setLangKey(lng); // bu komponentni qayta render qiladi
+    };
+    i18n.on("languageChanged", handleLangChange);
+    return () => i18n.off("languageChanged", handleLangChange);
   }, []);
+
+
 
   useEffect(() => {
     const handleLangChange = (lng: string) => {
@@ -30,7 +37,7 @@ export default function Nav() {
     };
   }, []);
 
-  if (!mounted || !ready) return null;
+  
 
   const languages = [
     { code: "uz", label: "Oʻzbekcha" },
@@ -55,6 +62,7 @@ export default function Nav() {
     { href: "#download", label: t("nav.download") },
     { href: "#", label: t("nav.support") },
   ];
+
 
   return (
     <nav className="w-full px-6 py-4 h-[80px] flex justify-between fixed top-0 items-center bg-white z-50">

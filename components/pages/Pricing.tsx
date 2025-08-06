@@ -2,15 +2,11 @@
 
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 import '@/i18n';
 
 export default function Pricing() {
-  const { t, ready } = useTranslation('common');
-  const [mounted, setMounted] = useState(false);
+  const { t } = useTranslation('common');
 
-  useEffect(() => setMounted(true), []);
-  if (!mounted || !ready) return null;
 
   const features = [
     t('pricing.features.1'),

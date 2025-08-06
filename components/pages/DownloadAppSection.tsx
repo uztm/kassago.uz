@@ -1,15 +1,11 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 import '@/i18n';
 
 export default function DownloadAppSection() {
-  const { t, ready } = useTranslation('common');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted || !ready) return null;
+  const { t } = useTranslation('common');
+ 
 
   return (
     <section className="bg-[#EEF2FF] rounded-[32px] px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">

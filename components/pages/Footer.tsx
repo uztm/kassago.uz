@@ -3,15 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 import '@/i18n';
 
 export default function Footer() {
-  const { t, ready } = useTranslation('common');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted || !ready) return null;
+  const { t } = useTranslation('common');
+  
 
   return (
     <footer className="bg-white text-[#0F172A] py-16 px-6 md:px-12">
