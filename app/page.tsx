@@ -7,6 +7,8 @@ import Hero from "@/components/pages/hero";
 import Pricing from "@/components/pages/Pricing";
 
 export default function Home() {
+
+  
   return (
     <div className="relative w-full flex pt-[85px] flex-col min-h-screen bg-white overflow-hidden">
       <Nav />
